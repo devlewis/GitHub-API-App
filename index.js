@@ -1,7 +1,5 @@
 'use strict';
 
-//const searchTerm = $('#js-search-term').val();
-
 function displayResults(responseJson) {
   const searchTerm = $('#js-search-term').val();
   console.log(responseJson);
