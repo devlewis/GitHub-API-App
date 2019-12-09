@@ -1,7 +1,6 @@
 'use strict';
 
-function displayResults(responseJson) {
-  const searchTerm = $('#js-search-term').val();
+function displayResults(responseJson, searchTerm) {
   console.log(responseJson);
   $('#results-list').empty();
   $('#results-list').append(`<h3>${searchTerm}'s Repos</h3>`)
@@ -23,7 +22,7 @@ function getResults(searchTerm){
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayResults(responseJson))
+    .then(responseJson => displayResults(responseJson, searchTerm))
     .catch(err => {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     })
