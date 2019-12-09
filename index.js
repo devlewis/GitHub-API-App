@@ -1,6 +1,6 @@
 'use strict';
 
-const searchTerm = $('#js-search-term').val();
+//const searchTerm = $('#js-search-term').val();
 
 function displayResults(responseJson) {
   const searchTerm = $('#js-search-term').val();
@@ -17,8 +17,7 @@ function displayResults(responseJson) {
   $('#results').removeClass('hidden');
 };
 
-function getResults(){
-  const searchTerm = $('#js-search-term').val();
+function getResults(searchTerm){
   fetch('https://api.github.com/users/'.concat(searchTerm,'/repos'))
     .then(response => {
       if (response.ok) {
@@ -35,8 +34,8 @@ function getResults(){
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    //const searchTerm = $('#js-search-term').val();
-    getResults();
+    const searchTerm = $('#js-search-term').val();
+    getResults(searchTerm);
   });
 }
 
